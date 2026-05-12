@@ -25,7 +25,7 @@ canvas{display:block;}
 #overlay h1{font-size:34px;letter-spacing:6px;color:#e8c84a;margin-bottom:6px;}
 #overlay .tl{font-size:10px;color:#444;letter-spacing:4px;margin-bottom:22px;}
 #overlay p{font-size:12px;color:#888;max-width:460px;line-height:1.85;margin-bottom:4px;}
-.ovr-btn{margin-top:18px;background:transparent;border:1px solid #ffffff22;color:#aaa;font-family:'Courier New',monospace;font-size:11px;padding:9px 30px;cursor:pointer;letter-spacing:3px;transition:all .2s;pointer-events:all;display:inline-block;}
+.ovr-btn{margin-top:18px;background:transparent;border:1px solid #ffffff22;color:#aaa;font-family:'Courier New',monospace;font-size:11px;padding:9px 30px;cursor:pointer;letter-spacing:3px;transition:all .2s;pointer-events:all;display:inline-block;position:relative;z-index:100;}
 .ovr-btn:hover{background:#ffffff0d;border-color:#e8c84a66;color:#e8c84a;}
 #mflash{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:380px;background:#040506;border:1px solid #e8c84a33;padding:22px 26px;z-index:60;text-align:center;display:none;pointer-events:none;}
 #mflash .ml{font-size:9px;letter-spacing:3px;color:#e8c84a55;margin-bottom:12px;text-transform:uppercase;}
@@ -61,7 +61,7 @@ canvas{display:block;}
   <div class="tl">LA REVOLUCIÓN · 2047</div>
   <p>Un niño del barrio que no recuerda quién es.<br>Un mundo en llamas que lo necesita.<br>Cada bala que dispara desentierra un fragmento de su pasado.</p>
   <p style="font-size:10px;color:#444;margin-top:8px;">20 zonas · 5 tipos de misión · Audio procedural · Sin instalación</p>
-  <button class="ovr-btn" id="btn-start">▶ INICIAR MISIÓN</button>
+  <button class="ovr-btn" id="btn-start" onclick="startGame()">▶ INICIAR MISIÓN</button>
 </div>
 
 <script>
