@@ -21,7 +21,7 @@ canvas{display:block;}
 #mission-box .mt{color:#e8c84a;font-weight:bold;margin-right:6px;}
 #story{position:fixed;bottom:0;left:50%;transform:translateX(-50%);background:#000000bb;border-top:0.5px solid #ffffff15;padding:6px 14px;font-size:10px;color:#7a9090;z-index:10;pointer-events:none;line-height:1.5;width:700px;}
 #ctrl{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);font-size:9px;color:#ffffff1a;letter-spacing:1px;z-index:10;pointer-events:none;text-align:center;}
-#overlay{position:fixed;inset:0;background:#000000ee;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;text-align:center;padding:20px;}
+#overlay{position:fixed;inset:0;background:#000000ee;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:51;text-align:center;padding:20px;pointer-events:all;}
 #overlay h1{font-size:34px;letter-spacing:6px;color:#e8c84a;margin-bottom:6px;}
 #overlay .tl{font-size:10px;color:#444;letter-spacing:4px;margin-bottom:22px;}
 #overlay p{font-size:12px;color:#888;max-width:460px;line-height:1.85;margin-bottom:4px;}
@@ -625,11 +625,14 @@ function showOverlay(title,body,btn){
 }
 
 function startGame(){
-  initAudio();
+  try{ initAudio(); }catch(e){}
   zone=0;score=0;kills=0;memories=[];player={};transitioning=false;
-  document.getElementById('overlay').style.display='none';
-  document.getElementById('mflash').style.display='none';
-  loadZone(0);GS='playing';
+  const ov=document.getElementById('overlay');
+  if(ov){ ov.style.display='none'; ov.style.pointerEvents='none'; }
+  const mf=document.getElementById('mflash');
+  if(mf) mf.style.display='none';
+  loadZone(0);
+  GS='playing';
 }
 
 // ── CONTROLES ─────────────────────────────────────────────
